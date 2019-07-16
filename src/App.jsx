@@ -7,7 +7,7 @@ import AboutUs from './components/AboutUs';
 import Shows from './components/Shows';
 import Gallery from './components/Gallery';
 import Basket from './components/Cart';
-import Admin from './components/Admin';
+import Admin from './containers/Admin/Admin';
 
 function App() {
   return (
