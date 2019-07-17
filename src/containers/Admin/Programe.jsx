@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 
 import {asyncFetchProgrames} from '../../actions/fetchPrograme';
+import NewPrograme from './NewPrograme';
 
 class Programe extends Component {
   constructor(props) {
@@ -16,25 +17,52 @@ class Programe extends Component {
     asyncFetchProgrames();
   }
   
+  handleDelete(id) {
+    console.log('toto');
+    console.log(id);
+
+    if (window.confirm("Are you sure you wan to delete this act?")) {
+      fetch(`http://localhost:5000/api/programe/${id}`, { 
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", },
+      body: JSON.stringify({id})
+    })
+      .then(res => {
+        if (res.error) {
+          alert(res.error);
+        } else {
+          window.location.reload();
+        }
+
+      }).catch(event => {
+        console.error(event);
+        alert('Ah Snap :-/ this act was not deleted. Pls try again later')
+      });
+
+  } else {
+      alert("Nothing was deleted")
+  }
+  }
 
   render() {
     const { programes, loading, error } = this.props;
     console.log(programes);
     return ( 
       <div className="Programe">
+        <NewPrograme />
         <div className="acts">
 
           {error !== '' ? <div>{error}</div> : ''}
         {loading ? <div>Loading programes ...</div> : (
           <CardDeck className="container row">
           {(programes && programes.length > 0)
-          ? programes.map(programe => (
-            <Card className="col-4">
+          ? programes.map((programe, index) => (
+            <Card key={index} className="col-4">
                 <CardImg top width="100%" src={programe.image} alt="Card image cap" />
                 <CardBody>
                   <CardTitle>{programe.title}</CardTitle>
                   <CardText>{programe.description}</CardText>
-                  <Button>Edit</Button>
+                  <Button color="danger" onClick={() => this.handleDelete(programe.id)}>Delete</Button>
                 </CardBody>
               </Card>
           ))

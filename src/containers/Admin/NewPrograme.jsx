@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { Col, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { asyncFetchNewShow } from '../../actions/fetchNewShow';
 
 
@@ -31,13 +31,14 @@ class NewPrograme extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
     const newPrograme = {
       title: this.state.title,
       description: this.state.description,
       image: this.state.image,
     }
     console.log(newPrograme);
+    e.preventDefault();
 
     const config = {
       method: 'POST',
@@ -73,18 +74,16 @@ class NewPrograme extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label for="title">Title</Label>
-                  <Input type="text" name="title" id="title" placeholder="Act tile" />
+                  <Input type="text" name="title" id="title" placeholder="Act tile" onChange={this.handleChange} />
                 </FormGroup>
 
-                <FormGroup row>
-                  <Label for="description" sm={2}>Description</Label>
-                  <Col sm={10}>
-                    <Input type="textarea" name="description" id="description" />
-                  </Col>
+                <FormGroup>
+                  <Label for="description">Description</Label>
+                    <Input type="textarea" name="description" id="description" onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
                   <Label for="image">Image</Label>
-                  <Input type="text" name="image" id="image" placeholder="Insert link to image" />
+                  <Input type="text" name="image" id="image" placeholder="Insert link to image" onChange={this.handleChange} />
                 </FormGroup>
               </ModalBody>
               <ModalFooter>

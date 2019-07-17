@@ -37,8 +37,8 @@ class Home extends Component {
         <h2>The Best Acts</h2>
         <div className="acts">
           <CardDeck className="container row">
-            {sampleActs.map(Act =>
-              <Card className="col-4">
+            {sampleActs.map((Act, index) =>
+              <Card className="col-4" key={index}>
                 <CardImg top width="100%" src={Act.image} alt="Card image cap" />
                 <CardBody>
                   <CardTitle>{Act.name}</CardTitle>
