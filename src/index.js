@@ -10,6 +10,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from "react-redux";
 import { BrowserRouter } from 'react-router-dom';
 import thunk from "redux-thunk";
+import moment from 'moment';
+import '../node_modules/moment/locale/fr';
+import 'react-notifications/lib/notifications.css';
+
+moment.locale('fr');
 
 const store = createStore(
   allReducers, composeWithDevTools(

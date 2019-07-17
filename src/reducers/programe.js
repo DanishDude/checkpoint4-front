@@ -4,24 +4,24 @@ const initialState = {
   error: '',
 };
 
-const shows = (state = initialState, action) => {
+const programes = (state = initialState, action) => {
   switch (action.type) {
-    case 'START_FETCH_SHOWS': {
+    case 'START_FETCH_PROGRAMES': {
       console.log('Start fetch');
       return {
         ...state,
         loading: true,
       };
     }
-    case 'FETCH_SUCCESS_SHOWS': {
+    case 'FETCH_SUCCESS_PROGRAMES': {
       return {
         ...state,
         loading: false,
-        list: [...action.shows],
+        list: [...action.programes],
         error: '',
       };
     }
-    case 'FETCH_ERROR_SHOWS': {
+    case 'FETCH_ERROR_PROGRAMES': {
       return {
         ...state,
         loading: false,
@@ -33,4 +33,4 @@ const shows = (state = initialState, action) => {
   }
 };
 
-export default shows;
+export default programes;

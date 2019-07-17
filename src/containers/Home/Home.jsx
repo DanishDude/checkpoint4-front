@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Card, Button, CardImg, CardTitle, CardText, CardDeck, CardBody
+  Card, CardImg, CardTitle, CardText, CardDeck, CardBody
 } from 'reactstrap';
 import './Home.scss'
 
@@ -43,7 +43,6 @@ class Home extends Component {
                 <CardBody>
                   <CardTitle>{Act.name}</CardTitle>
                   <CardText>{Act.description}</CardText>
-                  <Button>See more</Button>
                 </CardBody>
               </Card>
             )}

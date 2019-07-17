@@ -1,27 +1,27 @@
 const initialState = {
   loading: false,
-  list: [],
+  newShow: {},
   error: '',
 };
 
-const shows = (state = initialState, action) => {
+const newShow = (state = initialState, action) => {
   switch (action.type) {
-    case 'START_FETCH_SHOWS': {
+    case 'START_FETCH_NEW_SHOW': {
       console.log('Start fetch');
       return {
         ...state,
         loading: true,
       };
     }
-    case 'FETCH_SUCCESS_SHOWS': {
+    case 'FETCH_SUCCESS_NEW_SHOW': {
       return {
         ...state,
         loading: false,
-        list: [...action.shows],
+        newShow: {...action.newShow},
         error: '',
       };
     }
-    case 'FETCH_ERROR_SHOWS': {
+    case 'FETCH_ERROR_NEW_SHOW': {
       return {
         ...state,
         loading: false,
@@ -33,4 +33,4 @@ const shows = (state = initialState, action) => {
   }
 };
 
-export default shows;
+export default newShow;
