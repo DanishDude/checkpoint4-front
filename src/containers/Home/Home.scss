@@ -1,0 +1,10 @@
+.Home {
+  .promo {
+    width: 800px;
+  }
+  .acts {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
