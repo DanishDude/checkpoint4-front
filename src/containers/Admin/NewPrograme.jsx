@@ -54,7 +54,7 @@ class NewPrograme extends Component {
         if (res.error) {
           alert(res.error);
         } else {
-          alert(`A new act has been added with id : ${res}!`);
+          window.location.reload();
         }
       }).catch(event => {
         console.error(event); alert('Ah Snap! This didn\'t work. Please try again later');

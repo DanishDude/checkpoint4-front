@@ -57,7 +57,7 @@ class NewShow extends Component {
           alert(`A new show has been added with id : ${res}!`);
         }
       }).catch(event => {
-        console.error(event);alert('Ah Snap! This didn\'t work. Please try again later');
+        console.error(event);
       });
 
   }
