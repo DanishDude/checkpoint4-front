@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { asyncFetchProgrames } from '../../actions/fetchPrograme';
 import NewPrograme from './NewPrograme';
+import './Programe.scss';
 
 class Programe extends Component {
   constructor(props) {
@@ -43,7 +44,6 @@ class Programe extends Component {
 
   render() {
     const { programes, loading, error } = this.props;
-    console.log(programes);
     return (
       <div className="Programe">
         <NewPrograme />

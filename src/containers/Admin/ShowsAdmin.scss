@@ -1,0 +1,16 @@
+.Shows {
+  .title {
+    margin-top: 10px;
+  }
+  .list {
+    margin: 5px;
+  }
+  .show {
+    margin-top: 10px;
+    justify-content: center;
+    padding: 0;
+    .qty {
+      width: 40%;
+    }
+  }
+}
