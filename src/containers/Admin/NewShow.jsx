@@ -27,7 +27,6 @@ class NewShow extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -38,7 +37,6 @@ class NewShow extends Component {
       capacity: this.state.capacity,
       price: this.state.price,
     }
-    console.log(newShow);
 
     const config = {
       method: 'POST',
@@ -67,7 +65,7 @@ class NewShow extends Component {
       <div className="NewShow">
         <div>
           <Button color="primary" onClick={this.toggle}>New Show</Button>
-          <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 1300 }}
+          <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 900 }}
             toggle={this.toggle} className={this.props.className}>
             <ModalHeader toggle={this.toggle}>Add new show to the tour</ModalHeader>
             <Form>

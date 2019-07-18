@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { asyncFetchNewShow } from '../../actions/fetchNewShow';
 
+import './NewPrograme.scss';
 
 class NewPrograme extends Component {
   constructor(props) {
@@ -27,7 +28,6 @@ class NewPrograme extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -64,7 +64,7 @@ class NewPrograme extends Component {
 
   render() {
     return (
-      <div className="NewShow">
+      <div className="NewPrograme">
         <div>
           <Button color="primary" onClick={this.toggle}>New Act</Button>
           <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 1300 }}

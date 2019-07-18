@@ -3,10 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './containers/Home/Home';
 import './App.css';
 import Header from './components/Header';
-import AboutUs from './components/AboutUs';
-import Gallery from './components/Gallery';
-import Basket from './components/Cart';
+import OurStory from './components/OurStory';
+import Shows from './containers/Shows/Shows'
 import Admin from './containers/Admin/Admin';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -14,11 +14,11 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/AboutUs" component={AboutUs} />
-        <Route path="/Gallery" component={Gallery} />
-        <Route path="/Basket" component={Basket} />
+        <Route path="/OurStory" component={OurStory} />
+        <Route path="/Shows" component={Shows} />
         <Route path="/Admin" component={Admin} />
       </Switch>
+      <Footer />
     </div>
   );
 }
